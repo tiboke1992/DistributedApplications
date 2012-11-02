@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package opdracht4fxml;
+package opdracht4_fxml;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,11 +14,11 @@ import javafx.stage.Stage;
  *
  * @author stinson
  */
-public class Opdracht4FXML extends Application {
+public class Opdracht4_FXML extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLFile.fxml"));
         
         Scene scene = new Scene(root);
         

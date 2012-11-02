@@ -16,7 +16,7 @@
             </extension>
         </buildExtensions>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
-            <name>Opdracht4FXML</name>
+            <name>Opdracht4_FXML</name>
             <explicit-platform explicit-source-supported="true"/>
             <source-roots>
                 <root id="src.dir"/>
