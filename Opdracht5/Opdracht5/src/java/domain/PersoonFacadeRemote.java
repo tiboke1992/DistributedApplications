@@ -29,4 +29,6 @@ public interface PersoonFacadeRemote {
 
     int count();
     
+    Object createPersoon(String naam, String voornaam, String klasnr);
+    
 }

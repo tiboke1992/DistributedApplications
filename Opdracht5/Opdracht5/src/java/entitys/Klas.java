@@ -29,7 +29,7 @@ public class Klas implements Serializable {
     private Long id;
     private String klasNaam;
     private String klasNR;
-    @OneToMany(mappedBy="klas",cascade= CascadeType.PERSIST,fetch= FetchType.EAGER)
+    @OneToMany(mappedBy="klas", cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch= FetchType.EAGER)
     private List<Persoon> klasLijst;
     
     public List<Persoon> getKlasLijst() {

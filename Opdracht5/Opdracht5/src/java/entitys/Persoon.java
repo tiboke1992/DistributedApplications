@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-
 /**
  *
  * @author stinson
@@ -28,7 +27,7 @@ public class Persoon implements Serializable {
     private String naam;
     private String voornaam;
     private String klasnr;
-    @ManyToOne(targetEntity=Klas.class,cascade= CascadeType.PERSIST, fetch= FetchType.EAGER)
+    @ManyToOne(targetEntity = Klas.class, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private Klas klas;
 
     public Klas getKlas() {
@@ -95,4 +94,7 @@ public class Persoon implements Serializable {
     public String toString() {
         return "entitys.Persoon[ id=" + id + " ]";
     }
+    
+    
+ 
 }

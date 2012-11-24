@@ -5,7 +5,6 @@
 package opdracht5standalone;
 
 import domain.KlasFacadeRemote;
-import domain.PersoonFacade;
 import domain.PersoonFacadeRemote;
 import entitys.Klas;
 import entitys.Persoon;
@@ -54,12 +53,12 @@ public class Main {
             lijst.add(p2);
             klas.setKlasLijst(lijst);
             klasDB.edit(klas);
-            
+
             Klas klas2 = new Klas();
             klas2.setKlasNR("blabla");
             klas2.setKlasNaam("klas opt terras");
             klas2 = (Klas) klasDB.create(klas2);
-            
+
             Persoon p3 = new Persoon();
             p3.setKlasnr("chacha");
             p3.setNaam("test");
@@ -67,8 +66,8 @@ public class Main {
             p3 = (Persoon) persoonDB.create(p3);
             p3.setKlas(klas2);
             p3 = (Persoon) persoonDB.edit(p3);
-            
-            List<Persoon>l2 = new ArrayList<Persoon>();
+
+            List<Persoon> l2 = new ArrayList<Persoon>();
             l2.add(p3);
             klas2.setKlasLijst(l2);
             klas2 = (Klas) klasDB.edit(klas2);
@@ -78,14 +77,34 @@ public class Main {
             }
             /////generate lazy error
             List<Klas> klasLijst = klasDB.findAll();
-            for(Klas k : klasLijst){
+            for (Klas k : klasLijst) {
                 System.out.println("Klasnaam = " + k.getKlasNaam());
                 List<Persoon> l = k.getKlasLijst();
-                for(Persoon p : l){
+                for (Persoon p : l) {
                     System.out.println("Persoon in klas : " + k.getKlasNaam() + " ++ Naam = " + p.getVoornaam() + " " + p.getNaam());
                 }
             }
-            ///generate lazy error
+            System.out.println("---------------Merge testen:---------------------");
+            p3.setNaam("Nieuwe naam van p3");
+            p3.getKlas().setKlasNaam("Veranderde naam van de klas");
+            p3 = (Persoon) persoonDB.edit(p3);
+            Persoon ll = persoonDB.find(p3.getId());
+            System.out.println(ll.getNaam() + "  " + ll.getKlas().getKlasNaam());
+            System.out.println("---------------Einde merge test-------------------");
+            System.out.println("---------------Remove testen:---------------------");
+            //error genereren voor remove
+            //  klasDB.remove(p3.getKlas());
+            //oplossen
+            Klas kkkk = p3.getKlas();
+            p3.setKlas(null);
+            p3 = (Persoon) persoonDB.edit(p3);
+            klasDB.remove(kkkk);
+            System.out.println("---------------Einde Remove testen:---------------------");
+            System.out.println("---------------Extended entity manager testen:---------------------");
+            persoonDB.createPersoon("a", "b", "c");
+            persoonDB.createPersoon("a", "b", "c");
+            persoonDB.createPersoon("a", "b", "c");
+             System.out.println("---------------Einde Extended entity manager testen:---------------------");
         } catch (NamingException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
