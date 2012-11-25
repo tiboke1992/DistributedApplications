@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="593.0" prefWidth="578.0" xmlns:fx="http://javafx.com/fxml" fx:controller="opdracht8.Opdracht8FXMLController">
+  <children>
+    <Label fx:id="label" layoutX="126.0" layoutY="120.0" minHeight="16.0" minWidth="69.0" />
+    <Label layoutX="35.0" layoutY="59.0" text="Lengte:" />
+    <Label layoutX="35.0" layoutY="94.0" text="Gewicht:" />
+    <Label layoutX="35.0" layoutY="136.0" text="Geslacht:" />
+    <TextField fx:id="lengte" layoutX="138.0" layoutY="53.0" prefWidth="200.0" />
+    <TextField fx:id="gewicht" layoutX="138.0" layoutY="88.0" prefWidth="200.0" />
+    <CheckBox fx:id="man" layoutX="138.0" layoutY="136.0" mnemonicParsing="false" text="M" />
+    <CheckBox fx:id="vrouw" layoutX="232.0" layoutY="136.0" mnemonicParsing="false" text="V" />
+    <Label layoutX="35.0" layoutY="177.0" text="BMI" />
+    <TextField fx:id="bmi" layoutX="138.0" layoutY="174.0" prefWidth="200.0" />
+    <Slider fx:id="slider" layoutX="138.0" layoutY="230.0" />
+    <TextField fx:id="sliderValue" layoutX="153.0" layoutY="244.0" prefWidth="46.0" />
+    <TextArea fx:id="areaMan" layoutX="89.0" layoutY="297.0" prefHeight="124.0" prefWidth="140.0" wrapText="true" />
+    <TextArea fx:id="areaVrouw" layoutX="278.0" layoutY="297.0" prefHeight="124.0" prefWidth="140.0" wrapText="true" />
+  </children>
+</AnchorPane>
