@@ -98,13 +98,20 @@ public class Main {
             Klas kkkk = p3.getKlas();
             p3.setKlas(null);
             p3 = (Persoon) persoonDB.edit(p3);
+            for (Klas k : klasLijst) {
+                System.out.println("Klasnaam = " + k.getKlasNaam());
+                List<Persoon> l = k.getKlasLijst();
+                for (Persoon p : l) {
+                    System.out.println("Persoon in klas : " + k.getKlasNaam() + " ++ Naam = " + p.getVoornaam() + " " + p.getNaam());
+                }
+            }
             klasDB.remove(kkkk);
             System.out.println("---------------Einde Remove testen:---------------------");
             System.out.println("---------------Extended entity manager testen:---------------------");
             persoonDB.createPersoon("a", "b", "c");
             persoonDB.createPersoon("a", "b", "c");
             persoonDB.createPersoon("a", "b", "c");
-             System.out.println("---------------Einde Extended entity manager testen:---------------------");
+            System.out.println("---------------Einde Extended entity manager testen:---------------------");
         } catch (NamingException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
